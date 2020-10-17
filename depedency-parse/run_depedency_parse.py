@@ -1,6 +1,8 @@
 import stanza
-stanza.download('en')
-stanza_nlp = stanza.Pipeline('en')
+
+# if the resource has not been downloaded
+# stanza.download('en')
+# stanza_nlp = stanza.Pipeline('en')
 
 list_image_name = open('../data/task1/image_splits/all_images.txt','r').read().split('\n')
 list_caption = open('../data/task1/raw/en_labels/all_label_en.txt','r').read().split('\n') 
@@ -9,7 +11,7 @@ total_images = len(list_image_name)
 
 nlp = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
 
-for i in range(len(total_images)):
+for i in range(total_images):
   image_name = list_image_name[i]
   caption = list_caption[i]
   doc = nlp(caption)
