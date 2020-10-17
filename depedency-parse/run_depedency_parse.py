@@ -1,4 +1,6 @@
 import stanza
+stanza.download('en')
+stanza_nlp = stanza.Pipeline('en')
 
 list_image_name = open('../data/task1/image_splits/all_images.txt','r').read().split('\n')
 list_caption = open('../data/task1/raw/en_labels/all_label_en.txt','r').read().split('\n') 
