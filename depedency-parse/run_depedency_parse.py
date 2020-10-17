@@ -19,5 +19,9 @@ for i in range(total_images):
   print(f'{i}: {image_name}')
   
   target_file =  open(f'en/{image_name[:-4]}.txt', 'w')
-  target_file.write(*[f'id: {word.id}\tword: {word.text}\thead id: {word.head}\thead: {sent.words[word.head-1].text if word.head > 0 else "root"}\tdeprel: {word.deprel}' for sent in doc.sentences for word in sent.words], sep='\n')
+  for sent in doc.sentences:
+    for word in sent.words:
+      target_file.write(f'id: {word.id}\tword: {word.text}\thead id: {word.head}\thead: {sent.words[word.head-1].text if word.head > 0 else "root"}\tdeprel: {word.deprel}\n')
+  
+#   print(*[f'id: {word.id}\tword: {word.text}\thead id: {word.head}\thead: {sent.words[word.head-1].text if word.head > 0 else "root"}\tdeprel: {word.deprel}' for sent in doc.sentences for word in sent.words], sep='\n')
   target_file.close()
