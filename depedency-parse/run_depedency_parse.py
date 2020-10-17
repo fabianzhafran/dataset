@@ -11,7 +11,8 @@ total_images = len(list_image_name)
 
 nlp = stanza.Pipeline(lang='en', processors='tokenize,mwt,pos,lemma,depparse')
 
-for i in range(total_images):
+# for i in range(total_images):
+for i in range(15342, total_images): # resume 
   image_name = list_image_name[i]
   caption = list_caption[i]
   doc = nlp(caption)
